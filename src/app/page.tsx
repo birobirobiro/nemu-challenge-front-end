@@ -8,7 +8,8 @@ import {
 } from "@/components/ui/card";
 
 export default async function Home() {
-  const data = await fetch("http://localhost:3333/journeys");
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const data = await fetch(`${apiUrl}/journeys`);
   const journeys = await data.json();
 
   return (
